@@ -4,8 +4,8 @@
 library indonesia;
 
 /// Convert value to "Rp XX.XXX.XXX" as [String]
-String rupiah(value, {String separator='.', String trailing=''}) {
-	return "Rp " + value.toString().replaceAllMapped(new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}${separator}') + trailing;
+String rupiah(value, {String separator='.', String trailing='', String leading=''}) {
+	return leading + value.toString().replaceAllMapped(new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}${separator}') + trailing;
 }
 
 /// Convert [DateTime] to Indonesia specific date
